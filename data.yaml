@@ -1,0 +1,6 @@
+train: ../train/images
+val:
+test: ../test/images
+
+nc: 3
+names: ["Car", "Pedestrian", "Cyclist"]
