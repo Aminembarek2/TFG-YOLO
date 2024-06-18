@@ -14,12 +14,16 @@ This project is based on the YOLO (You Only Look Once) algorithm for object dete
 - `data.yaml`: Configuration file for the dataset.
 - `trainlist.txt`: List of training data files.
 - `testlist.txt`: List of testing data files.
+- `reverse.py`: Script to prepare and convert normalized labels to actual coordinates for testing.
+- `keep.py`:  Script to test the labels.
 
 ## Getting Started
 
 ### Prerequisites
-- Python 3.x
+- Python 3.10
 - Install ```pip install ultralytics```
+- Install ```pip install pillow==10.3.0```
+  
 ## Usage
 ### Dataset Preparation
 
@@ -32,4 +36,7 @@ Train the YOLO model using the train.py script:
 To generate the test results of the model using the test.py script:
 ```python test.py```
 ### Model Evaluation
-To evaluate the model, use the evaluation kit. You need to reverse the normalization and change the labels first. For missing values (occlusion, 3D coordinates, etc.), insert the ignored values (e.g., -1, -10). Check [this link](https://github.com/cguindel/eval_kitti) for more information on how to test using the KITTI evaluation kit.
+To evaluate the model, use the evaluation kit. You need to reverse the normalization and change the labels first. For missing values (occlusion, 3D coordinates, etc.), insert the ignored values (e.g., -1, -10). 
+To reverse the normalisation and fill in the missing data use: ```python reverse.py```.
+To evaluate the model use: ```python keep.py```.
+Check [this link](https://github.com/cguindel/eval_kitti) for more information on testing using the KITTI evaluation kit.
